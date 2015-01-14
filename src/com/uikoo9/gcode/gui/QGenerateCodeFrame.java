@@ -14,8 +14,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
-import com.uikoo9.gcode.help.QGenCodeUtil;
-import com.uikoo9.gcode.help.QStringUtil;
+import com.uikoo9.gcode.util.QGenCodeUtil;
+import com.uikoo9.gcode.util.QStringUtil;
 
 /**
  *
