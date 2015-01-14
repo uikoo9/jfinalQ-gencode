@@ -3,7 +3,9 @@ package com.uikoo9.gcode.help;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.net.URLDecoder;
 import java.util.Map;
 import java.util.Properties;
 
@@ -11,18 +13,39 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.texen.util.FileUtil;
 
-
-/**
- * Velocity工具类<br>
- * 1.生成代码<br>
- * @author qiaowenbin
- * @version 0.0.4.20141209
- * @history
- * 	0.0.4.20141209<br>
- * 	0.0.3.20141015<br>
- * 	0.0.2.20140502<br>
- */
-public class QVelocityUtil {
+public class QUtil {
+	
+	/**
+	 * jar包得到自身的路径
+	 * @return
+	 */
+	public static String getJarPath() {
+		String res = null;
+		
+		try {
+			res = URLDecoder.decode(QUtil.class.getProtectionDomain().getCodeSource().getLocation().getFile(), "UTF-8");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	/**
+	 * 读取配置文件
+	 * @param in
+	 * @return
+	 */
+	public static Properties readProperties(String path){
+		Properties p = new Properties();
+		try {
+			p.load(QUtil.class.getResourceAsStream(path));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return p;
+	}
 	
 	/**
 	 * 生成代码

@@ -14,7 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
-import com.uikoo9.gcode.help.QGenerateCodeHelp;
+import com.uikoo9.gcode.help.QGenCodeUtil;
 import com.uikoo9.gcode.help.QStringUtil;
 
 /**
@@ -28,7 +28,7 @@ public class QGenerateCodeFrame extends javax.swing.JFrame {
 	public QGenerateCodeFrame() {
 		initComponents();
 		this.setLocationRelativeTo(null);
-		QGenerateCodeHelp.fillTable((DefaultTableModel) jTable1.getModel());
+		QGenCodeUtil.fillTable((DefaultTableModel) jTable1.getModel());
 	}
 
 	/** This method is called from within the constructor to
@@ -194,7 +194,7 @@ public class QGenerateCodeFrame extends javax.swing.JFrame {
 
 		for (int i : jTable1.getSelectedRows()) {
 			String tableName = (String) jTable1.getModel().getValueAt(i, 1);
-			String generateCodeRes = QGenerateCodeHelp.genCodeFromTable(
+			String generateCodeRes = QGenCodeUtil.genCodeFromTable(
 					tableName, destBasePath);
 			jTextArea1.append(generateCodeRes);
 		}

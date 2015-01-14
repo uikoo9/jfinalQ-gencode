@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  * 代码生成-业务代码
  * @author qiaowenbin
  */
-public class QGenerateCodeHelp {
+public class QGenCodeUtil {
 	
 	public static final String dbPath = "/com/uikoo9/gcode/db.properties";
 	
@@ -50,7 +50,7 @@ public class QGenerateCodeHelp {
 	public static String genCodeFromTable(String tableName, String destBasePath){
 		StringBuilder res = new StringBuilder();
 		
-		String tmpBasePath = QFileUtil.getJarPath() + File.separator + "com" + File.separator + "uikoo9";
+		String tmpBasePath = QUtil.getJarPath() + File.separator + "com" + File.separator + "uikoo9";
 		try {
 			Connection con = null;
 			try {
@@ -97,10 +97,10 @@ public class QGenerateCodeHelp {
 				"manage" + File.separator + 
 				folderName + File.separator;
 		
-		boolean indexFtl	= QVelocityUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-index.ftl", 		tmpPath, "ftl-index.vm");
-		boolean inputFtl	= QVelocityUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-input.ftl", 		tmpPath, "ftl-input.vm");
-		boolean model 		= QVelocityUtil.generateCodeByVelocity(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model.vm");
-		boolean controller 	= QVelocityUtil.generateCodeByVelocity(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller.vm");
+		boolean indexFtl	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-index.ftl", 		tmpPath, "ftl-index.vm");
+		boolean inputFtl	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-input.ftl", 		tmpPath, "ftl-input.vm");
+		boolean model 		= QUtil.generateCodeByVelocity(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model.vm");
+		boolean controller 	= QUtil.generateCodeByVelocity(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller.vm");
 		
 		sb.append("generate jfinal code begin...\r\n");
 		sb.append("jfinal flt-index生成" + (indexFtl ? "成功" : "失败") + "!\r\n");
