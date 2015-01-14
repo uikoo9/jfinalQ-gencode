@@ -97,10 +97,10 @@ public class QGenCodeUtil {
 				"manage" + File.separator + 
 				folderName + File.separator;
 		
-		boolean indexFtl	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-index.ftl", 		tmpPath, "ftl-index.vm");
-		boolean inputFtl	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-input.ftl", 		tmpPath, "ftl-input.vm");
-		boolean model 		= QUtil.generateCodeByVelocity(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model.vm");
-		boolean controller 	= QUtil.generateCodeByVelocity(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller.vm");
+		boolean indexFtl	= QUtil.generateCodeByVelocity(map, destFTLPath, 					ftlName + "-index.ftl", 		tmpPath, "ftl-index");
+		boolean inputFtl	= QUtil.generateCodeByVelocity(map, destFTLPath, 					ftlName + "-input.ftl", 		tmpPath, "ftl-input");
+		boolean model 		= QUtil.generateCodeByVelocity(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model");
+		boolean controller 	= QUtil.generateCodeByVelocity(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller");
 		
 		sb.append("generate jfinal code begin...\r\n");
 		sb.append("jfinal flt-index生成" + (indexFtl ? "成功" : "失败") + "!\r\n");
