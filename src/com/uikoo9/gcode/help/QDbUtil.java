@@ -11,6 +11,7 @@ import java.util.Properties;
 
 /**
  * 数据库工具类
+ * @author qiaowenbin
  */
 public class QDbUtil {
 	

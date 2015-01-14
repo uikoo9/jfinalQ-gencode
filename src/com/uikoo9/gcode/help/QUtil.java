@@ -13,6 +13,10 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.texen.util.FileUtil;
 
+/**
+ * 通用工具类
+ * @author qiaowenbin
+ */
 public class QUtil {
 	
 	/**
