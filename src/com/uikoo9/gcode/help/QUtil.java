@@ -56,7 +56,7 @@ public class QUtil {
 	}
 	
 	/**
-	 * 生成代码
+	 * 生成代码 by velocity
 	 * @param map		变量
 	 * @param destPath	目的地址
 	 * @param destFile	目的文件名
@@ -88,14 +88,23 @@ public class QUtil {
 		}
 	}
 	
+	/**
+	 * 生成代码 by freemarker
+	 * @param map		变量
+	 * @param destPath	目的地址
+	 * @param destFile	目的文件名
+	 * @param tmpPath	模版地址
+	 * @param tmpFile	模版文件名
+	 * @return
+	 */
 	public static boolean generateCodeByFreemarker(Map<String, Object> map, String destPath, String destFile, String tmpPath, String tmpFile){
 		try {
 			Configuration cfg = new Configuration();
-			cfg.setDirectoryForTemplateLoading(new File(tmpPath));
+			cfg.setDirectoryForTemplateLoading(new File(tmpPath + File.separator + "freemarker"));
 			cfg.setObjectWrapper(new DefaultObjectWrapper());
 			
 			FileUtil.mkdir(destPath);
-			Template temp = cfg.getTemplate(tmpFile);
+			Template temp = cfg.getTemplate(tmpFile + ".ftl");
 			BufferedWriter sw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(destPath, destFile)), "UTF-8"));
 			temp.process(map, sw);
 			

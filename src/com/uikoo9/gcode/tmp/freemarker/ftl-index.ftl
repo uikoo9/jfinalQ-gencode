@@ -1,7 +1,7 @@
 <\#include "/com/uikoo9/util/view/common/inc.ftl"/>
 
-<@bslist qpage=qpage>
-	<@bstable>
+<\@bslist qpage=qpage>
+	<\@bstable>
 		<thead>
 			<tr>
 		        <th><input type="checkbox" class="allcheck"/></th>
@@ -13,7 +13,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		    <#list qpage.list?if_exists as row>
+		    <\#list qpage.list?if_exists as row>
 			    <tr data="id:${row.id};">
 			        <td><input type="checkbox" class="onecheck"/></td>
 				    #foreach($col in $cols)#if($col.get("colname") != "cuser_name" && $col.get("colname") != "cuser_id")<td>${(row.$col.get("colname"))!}</td>#end
@@ -23,7 +23,7 @@
 			        	<@bsbutton size='xs' icon='remove' class='delbtn'/>
 			        </td>
 			    </tr>
-		    </#list>
+		    </\#list>
 		</tbody>
-	</@bstable>
-</@bslist>
+	</\@bstable>
+</\@bslist>
