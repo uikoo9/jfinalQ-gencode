@@ -13,10 +13,6 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.texen.util.FileUtil;
 
-import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapper;
-import freemarker.template.Template;
-
 /**
  * 通用工具类
  * @author qiaowenbin
@@ -68,7 +64,7 @@ public class QUtil {
 		try {
 			// 1.初始化
 			Properties properties = new Properties();
-			properties.put("file.resource.loader.path", tmpPath + File.separator + "velocity");  
+			properties.put("file.resource.loader.path", tmpPath);  
 			properties.put("input.encoding", "UTF-8");
 			properties.put("output.encoding", "UTF-8");
 			Velocity.init(properties);
@@ -77,41 +73,13 @@ public class QUtil {
 			// 2.生成代码
 			FileUtil.mkdir(destPath);
 			BufferedWriter sw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(destPath, destFile)), "UTF-8"));
-			Velocity.getTemplate(tmpFile + ".vm").merge(context, sw);
+			Velocity.getTemplate(tmpFile).merge(context, sw);
 			sw.flush();
 			sw.close();
 			
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
-		}
-	}
-	
-	/**
-	 * 生成代码 by freemarker
-	 * @param map		变量
-	 * @param destPath	目的地址
-	 * @param destFile	目的文件名
-	 * @param tmpPath	模版地址
-	 * @param tmpFile	模版文件名
-	 * @return
-	 */
-	public static boolean generateCodeByFreemarker(Map<String, Object> map, String destPath, String destFile, String tmpPath, String tmpFile){
-		try {
-			Configuration cfg = new Configuration();
-			cfg.setDirectoryForTemplateLoading(new File(tmpPath + File.separator + "freemarker"));
-			cfg.setObjectWrapper(new DefaultObjectWrapper());
-			
-			FileUtil.mkdir(destPath);
-			Template temp = cfg.getTemplate(tmpFile + ".ftl");
-			BufferedWriter sw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(destPath, destFile)), "UTF-8"));
-			temp.process(map, sw);
-			
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			
 			return false;
 		}
 	}

@@ -97,23 +97,10 @@ public class QGenCodeUtil {
 				"manage" + File.separator + 
 				folderName + File.separator;
 		
-		boolean indexFtl	= false;
-		boolean inputFtl	= false;
-		boolean model 		= false;
-		boolean controller 	= false;
-		
-		if("freemarker".equals(QUtil.readProperties(dbPath).getProperty("code.type"))){
-			indexFtl 	= QUtil.generateCodeByFreemarker(map, destFTLPath, 					ftlName + "-index.ftl", 		tmpPath, "ftl-index");
-//			inputFtl 	= QUtil.generateCodeByFreemarker(map, destFTLPath, 					ftlName + "-input.ftl", 		tmpPath, "ftl-input");
-//			model 		= QUtil.generateCodeByFreemarker(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model");
-//			controller 	= QUtil.generateCodeByFreemarker(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller");
-		}
-		if("velocity".equals(QUtil.readProperties(dbPath).getProperty("code.type"))){
-			indexFtl 	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-index.ftl", 		tmpPath, "ftl-index");
-			inputFtl 	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-input.ftl", 		tmpPath, "ftl-input");
-			model 		= QUtil.generateCodeByVelocity(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model");
-			controller 	= QUtil.generateCodeByVelocity(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller");
-		}
+		boolean indexFtl 	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-index.ftl", 		tmpPath, "ftl-index.vm");
+		boolean inputFtl 	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-input.ftl", 		tmpPath, "ftl-input.vm");
+		boolean model 		= QUtil.generateCodeByVelocity(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model.vm");
+		boolean controller 	= QUtil.generateCodeByVelocity(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller.vm");
 		
 		sb.append("generate jfinal code begin...\r\n");
 		sb.append("jfinal index.ftl生成" + (indexFtl ? "成功" : "失败") + "!\r\n");
