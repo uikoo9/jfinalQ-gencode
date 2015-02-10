@@ -38,3 +38,11 @@ jfinalQ-gencode
 1. 可以通过修改com.uikoo9.tmp下的模版文件修改生成模版
 2. 为了适应32位，64位，linux等操作系统，所以没有生成jar
 
+捐助
+---
+希望得到您的捐助：
+
+![zhifubao](http://uikoo9.com/WUI/web/donate/img/zhifu5.png)
+（支付宝捐助）
+![weixin](http://uikoo9.com/WUI/web/donate/img/zhifu1.png)
+（微信捐助）
