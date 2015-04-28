@@ -17,7 +17,7 @@ public class ${cname}Controller extends QController{
 	 */
 	public void index(){
 		setAttr("qpage", list(${cname}Model.class));
-		render("/WEB-INF/view/manage/${pname}/${ftl}-index.ftl");
+		render("/WEB-INF/view/manage/${pname}/${ftl}-index.html");
 	}
 	
 	/**
@@ -25,7 +25,7 @@ public class ${cname}Controller extends QController{
 	 */
 	public void savep(){
 		setAttr("row", getRow(${cname}Model.class));
-		render("/WEB-INF/view/manage/${pname}/${ftl}-input.ftl");
+		render("/WEB-INF/view/manage/${pname}/${ftl}-input.html");
 	}
 	
 	/**
