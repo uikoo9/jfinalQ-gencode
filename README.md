@@ -42,7 +42,10 @@ jfinalQ-gencode
 ---
 希望得到您的捐助：
 
-![zhifubao](http://uikoo9.qiniudn.com/@/img/donate/zhifu2.png)
 （支付宝捐助）
-![weixin](http://uikoo9.qiniudn.com/@/img/donate/zhifu1.png)
+
+![zhifubao](http://uikoo9.qiniudn.com/@/img/donate/zhifu2.png)
+
 （微信捐助）
+
+![weixin](http://uikoo9.qiniudn.com/@/img/donate/zhifu1.png)
