@@ -99,12 +99,14 @@ public class QGenCodeUtil {
 		
 		boolean indexFtl 	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-index.html", 		tmpPath, "ftl-index.vm");
 		boolean inputFtl 	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-input.html", 		tmpPath, "ftl-input.vm");
+		boolean searchFtl 	= QUtil.generateCodeByVelocity(map, destFTLPath, 				ftlName + "-search.html", 		tmpPath, "ftl-search.vm");
 		boolean model 		= QUtil.generateCodeByVelocity(map, destSRCPath + "model",		className + "Model.java", 		tmpPath, "Model.vm");
 		boolean controller 	= QUtil.generateCodeByVelocity(map, destSRCPath + "controller",	className + "Controller.java",	tmpPath, "Controller.vm");
 		
 		sb.append("generate jfinal code begin...\r\n");
 		sb.append("jfinal index.html生成" + (indexFtl ? "成功" : "失败") + "!\r\n");
 		sb.append("jfinal input.html生成" + (inputFtl ? "成功" : "失败") + "!\r\n");
+		sb.append("jfinal search.html生成" + (searchFtl ? "成功" : "失败") + "!\r\n");
 		sb.append("jfinal model生成" 	+ (model ? "成功" : "失败") + "!\r\n");
 		sb.append("jfinal controller生成"+ (controller ? "成功" : "失败") + "!\r\n");
 		sb.append("generate jfinal code end...\r\n");
