@@ -1,4 +1,4 @@
-<\#include "/com/uikoo9/util/jfinal/view/common/inc.html"/>
+<\#include "/WEB-INF/view/base/inc.html"/>
 
 <@bslist qpage=qpage>
 	<@bstable>

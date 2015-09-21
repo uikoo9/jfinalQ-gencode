@@ -1,4 +1,4 @@
-<\#include "/com/uikoo9/util/jfinal/view/common/inc.html"/>
+<\#include "/WEB-INF/view/base/inc.html"/>
 
 <form class="form-horizontal" role="form">
 	#foreach($col in $cols)#if($col.get("colname") != "cdate" && $col.get("colname") != "cuser_name" && $col.get("colname") != "cuser_id")<@bsinput title='$col.get("remarks")' name='row.$col.get("colname")'/>#end
